@@ -1,5 +1,7 @@
 package com.rifaria.rifariaapi.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,11 @@ public class UserController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public User salvar(@RequestBody User user) {
 		return repo.save(user);
+	}
+	
+	@GetMapping(value = "/user")
+	public List<User> getAllUsers() throws Exception {
+		return repo.findAll();
 	}
 	
 	@GetMapping(value = "/user/{id}")

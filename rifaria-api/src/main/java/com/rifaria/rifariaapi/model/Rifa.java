@@ -38,9 +38,8 @@ public class Rifa implements Serializable {
 	@Column(name = "numero")
 	private int numero;
 	
-//	@OneToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "premio_id", referencedColumnName = "id")
-//	private Premio premio;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Premio premio;
 
 	public Long getId() {
 		return id;
@@ -66,13 +65,13 @@ public class Rifa implements Serializable {
 		this.numero = numero;
 	}
 
-//	public Premio getPremio() {
-//		return premio;
-//	}
-//
-//	public void setPremio(Premio premio) {
-//		this.premio = premio;
-//	}
+	public Premio getPremio() {
+		return premio;
+	}
+
+	public void setPremio(Premio premio) {
+		this.premio = premio;
+	}
 
 //	public String toString() {
 //		return "{Rifa - ID: " + this.id + " - Proprietário: " + this.proprietario.getEmail() + " - Numero: "
