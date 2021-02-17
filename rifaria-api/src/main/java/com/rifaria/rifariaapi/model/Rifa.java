@@ -5,19 +5,10 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Table(name = "rifa")
 @Entity
 public class Rifa implements Serializable {
@@ -27,7 +18,7 @@ public class Rifa implements Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name = "id", insertable = false, updatable = false)
-	private Long id;
+	private Integer id;
 	
 //	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 //	@JoinColumn(name = "id", nullable = false)
@@ -41,11 +32,18 @@ public class Rifa implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Premio premio;
 
-	public Long getId() {
+	public Rifa() {}
+	
+	public Rifa(Integer numero, Premio premio) {
+		this.numero = numero;
+		this.premio = premio;
+	}
+	
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

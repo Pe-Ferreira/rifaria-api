@@ -18,6 +18,8 @@ import com.rifaria.rifariaapi.model.Rifa;
 import com.rifaria.rifariaapi.repository.RifaRepository;
 import com.rifaria.rifariaapi.service.RifaService;
 
+import DTO.RifaDTO;
+
 @RestController
 public class RifaController {
 
@@ -29,8 +31,9 @@ public class RifaController {
 	
 	@PostMapping(value = "/rifa")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Rifa salvar(@RequestBody Rifa rifa) {
-		return service.salvarRifa(rifa);
+	public String salvar(@RequestBody RifaDTO rifaDTO) {
+		service.salvarRifa(rifaDTO);
+		return "Rifa cadastrada com sucesso";
 	}
 	
 	@GetMapping(value = "/rifa")
