@@ -9,6 +9,8 @@ import com.rifaria.rifariaapi.model.Premio;
 import com.rifaria.rifariaapi.model.Rifa;
 import com.rifaria.rifariaapi.repository.RifaRepository;
 
+import DTO.RifaDTO;
+
 @Service
 public class RifaService {
 
@@ -18,8 +20,12 @@ public class RifaService {
 	@Autowired
 	private PremioService premioService;
 	
-	public Rifa salvarRifa(Rifa rifa) {
-//		Optional<Premio> premio = premioService.findById(premioId);
-		return repo.save(rifa);
+	public Object salvarRifa(RifaDTO rifaDTO) {
+		Optional<Premio> premio = premioService.findById(rifaDTO.getPremio());
+		if (premio.isPresent()) {
+			Rifa rifa = new Rifa(rifaDTO.getNumero(), premio.get());
+			return repo.save(rifa);
+		}
+		return new Exception("Erro ao cadastrar Rifa com premio inexistente");
 	}
 }
