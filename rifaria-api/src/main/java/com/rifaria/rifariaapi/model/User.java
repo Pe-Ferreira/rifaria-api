@@ -1,11 +1,15 @@
 package com.rifaria.rifariaapi.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Table(name = "user")
@@ -28,8 +32,8 @@ public class User implements Serializable {
 	@Column(name = "password")
 	private String password;
 	
-//	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-//	private List<Rifa> listaDeRifas = new ArrayList<>();
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Raffle> raffles = new ArrayList<>();
 	
 	public Integer getId() {
 		return id;
@@ -51,7 +55,7 @@ public class User implements Serializable {
 		return name;
 	}
 
-	public void setNome(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -59,8 +63,15 @@ public class User implements Serializable {
 		return password;
 	}
 
-	public void setSenha(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	public List<Raffle> getRaffles() {
+		return raffles;
+	}
+
+	public void setRaffles(List<Raffle> raffles) {
+		this.raffles = raffles;
+	}
 }

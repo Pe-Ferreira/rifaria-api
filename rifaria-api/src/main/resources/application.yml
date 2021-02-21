@@ -1,12 +1,14 @@
 spring:
-  application:    name: rifaria-api
+  application:
+    name: rifaria-api
   h2:
-    console:      enabled: true
+    console:
+      enabled: true
       path: /h2-console
   jpa:
     show-sql: true
   
 server:
-  port: 8088
+  port: 8080
   servlet:
     context-path: /api/v1

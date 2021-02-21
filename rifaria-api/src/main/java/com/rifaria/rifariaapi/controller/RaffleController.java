@@ -26,7 +26,7 @@ public class RaffleController {
 	
 	@PostMapping(value = "/raffle")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Raffle save(@RequestBody RaffleDTO raffleDTO) {
+	public Raffle save(@RequestBody RaffleDTO raffleDTO) throws Exception {
 		return service.saveRaffle(raffleDTO);
 	}
 	
