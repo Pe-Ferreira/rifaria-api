@@ -22,11 +22,11 @@ public class User implements Serializable {
 	@Column(name = "email")
 	private String email;
 	
-	@Column(name = "nome")
-	private String nome;
+	@Column(name = "name")
+	private String name;
 	
-	@Column(name = "senha")
-	private String senha;
+	@Column(name = "password")
+	private String password;
 	
 //	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 //	private List<Rifa> listaDeRifas = new ArrayList<>();
@@ -47,20 +47,20 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNome(String name) {
+		this.name = name;
 	}
 
-	public String getSenha() {
-		return senha;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setSenha(String password) {
+		this.password = password;
 	}
 
 }

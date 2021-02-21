@@ -8,9 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name = "premio")
+@Table(name = "prize")
 @Entity
-public class Premio implements Serializable {
+public class Prize implements Serializable {
 	
 	private static final long serialVersionUID = -6380749575516426900L;
 	
@@ -19,11 +19,11 @@ public class Premio implements Serializable {
 	@Column(name = "id", updatable = false)
 	private Integer id;
 	
-	@Column(name = "titulo")
-	private String titulo;
+	@Column(name = "title")
+	private String title;
 	
-	@Column(name = "valor")
-	private double valor;
+	@Column(name = "value")
+	private double value;
 
 	public Integer getId() {
 		return id;
@@ -33,20 +33,20 @@ public class Premio implements Serializable {
 		this.id = id;
 	}
 
-	public String getTitulo() {
-		return titulo;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public double getValor() {
-		return valor;
+	public double getValue() {
+		return value;
 	}
 
-	public void setValor(double valor) {
-		this.valor = valor;
+	public void setValue(double value) {
+		this.value = value;
 	}
 
 }

@@ -9,9 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-@Table(name = "rifa")
+@Table(name = "raffle")
 @Entity
-public class Rifa implements Serializable {
+public class Raffle implements Serializable {
 
 	private static final long serialVersionUID = -6380749575516426900L;
 	
@@ -26,17 +26,17 @@ public class Rifa implements Serializable {
 //	@JsonIgnore
 //	private User proprietario;
 	
-	@Column(name = "numero")
-	private int numero;
+	@Column(name = "number")
+	private int number;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private Premio premio;
+	private Prize prize;
 
-	public Rifa() {}
+	public Raffle() {}
 	
-	public Rifa(Integer numero, Premio premio) {
-		this.numero = numero;
-		this.premio = premio;
+	public Raffle(Integer number, Prize prize) {
+		this.number = number;
+		this.prize = prize;
 	}
 	
 	public Integer getId() {
@@ -55,20 +55,20 @@ public class Rifa implements Serializable {
 //		this.proprietario = proprietario;
 //	}
 
-	public int getNumero() {
-		return numero;
+	public int getNumber() {
+		return number;
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
-	public Premio getPremio() {
-		return premio;
+	public Prize getPrize() {
+		return prize;
 	}
 
-	public void setPremio(Premio premio) {
-		this.premio = premio;
+	public void setPrize(Prize prize) {
+		this.prize = prize;
 	}
 
 //	public String toString() {

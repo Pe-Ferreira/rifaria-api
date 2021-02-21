@@ -4,8 +4,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.rifaria.rifariaapi.model.Rifa;
+import com.rifaria.rifariaapi.model.Prize;
 
-public interface RifaRepository extends JpaRepository<Rifa, Integer>{
-	Page<Rifa> findById(Integer id, Pageable pageable);
+public interface PrizeRepository extends JpaRepository<Prize, Integer>{
+	Page<Prize> findById(Integer id, Pageable pageable);
 }
