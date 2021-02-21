@@ -22,7 +22,7 @@ public class RaffleService {
 	
 	public Raffle saveRaffle(RaffleDTO rifaDTO) throws Exception {
 		Prize prize = prizeService.findById(rifaDTO.getPrize());
-		Raffle raffle = new Raffle(rifaDTO.getNumber(), prize);
+		Raffle raffle = new Raffle(sortNumber(), prize);
 		return repo.save(raffle);
 	}
 
@@ -47,5 +47,11 @@ public class RaffleService {
 			repo.save(raffle);
 			return ResponseEntity.ok(raffle);
 		}).orElseThrow(() -> new Exception("Raffle [id = " + id + "] not found"));
+	}
+
+	private int sortNumber() {
+		int max = 100;
+		int min = 1;
+		return (int) (Math.random() * (max - min + 1) + min);
 	}
 }
