@@ -1,4 +1,4 @@
-package DTO;
+package com.rifaria.rifariaapi.DTO;
 
 public class RaffleDTO {
 
