@@ -14,46 +14,46 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rifaria.rifariaapi.model.Premio;
-import com.rifaria.rifariaapi.repository.PremioRepository;
+import com.rifaria.rifariaapi.model.Prize;
+import com.rifaria.rifariaapi.repository.PrizeRepository;
 
 @RestController
-public class PremioController {
+public class PrizeController {
 
 	@Autowired
-	private PremioRepository repo;
+	private PrizeRepository repo;
 	
-	@PostMapping(value = "/premio")
+	@PostMapping(value = "/prize")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Premio salvar(@RequestBody Premio premio) {
-		return repo.save(premio);
+	public Prize save(@RequestBody Prize prize) {
+		return repo.save(prize);
 	}
 	
-	@GetMapping(value = "/premio")
-	public List<Premio> getAllPremios() throws Exception {
+	@GetMapping(value = "/prize")
+	public List<Prize> getAllPremios() throws Exception {
 		return repo.findAll();
 	}
 	
-	@GetMapping(value = "/premio/{id}")
-	public Premio findByPremioId(@PathVariable Integer id) throws Exception {
+	@GetMapping(value = "/prize/{id}")
+	public Prize findByPremioId(@PathVariable Integer id) throws Exception {
 		return repo.findById(id).orElseThrow(() -> new Exception("Premio [id = " + id + "] não foi encontrada"));
 	}
 	
-	@DeleteMapping(value = "/premio/{id}")
+	@DeleteMapping(value = "/prize/{id}")
 	public ResponseEntity<?> deletePremio(@PathVariable Integer id) throws Exception {
-		return repo.findById(id).map(premio -> {
-			repo.delete(premio);
+		return repo.findById(id).map(prize -> {
+			repo.delete(prize);
 			return ResponseEntity.ok().build();
 		}).orElseThrow(() -> new Exception("Premio [id = " + id + "] não foi encontrado"));
 	}
 	
-	@PutMapping(value = "/premio/{id}")
-	public ResponseEntity<Premio> updatePremio(@PathVariable Integer id, @RequestBody Premio newPremio) throws Exception {
-		return repo.findById(id).map(premio -> {
-			premio.setTitulo(newPremio.getTitulo());
-			premio.setValor(newPremio.getValor());
-			repo.save(premio);
-			return ResponseEntity.ok(premio);
+	@PutMapping(value = "/prize/{id}")
+	public ResponseEntity<Prize> updatePremio(@PathVariable Integer id, @RequestBody Prize newPrize) throws Exception {
+		return repo.findById(id).map(prize -> {
+			prize.setTitle(newPrize.getTitle());
+			prize.setValue(newPrize.getValue());
+			repo.save(prize);
+			return ResponseEntity.ok(prize);
 		}).orElseThrow(() -> new Exception("Premio [id = " + id + "] não foi encontrado"));
 	}
 }

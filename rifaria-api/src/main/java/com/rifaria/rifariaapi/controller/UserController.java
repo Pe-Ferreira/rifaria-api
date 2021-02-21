@@ -50,9 +50,9 @@ public class UserController {
 	@PutMapping(value = "/user/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable Integer id, @RequestBody User newUser) throws Exception {
 		return repo.findById(id).map(user -> {
-			user.setNome(newUser.getNome());
+			user.setNome(newUser.getName());
 			user.setEmail(newUser.getEmail());
-			user.setSenha(newUser.getSenha());
+			user.setSenha(newUser.getPassword());
 			repo.save(user);
 			return ResponseEntity.ok(user);
 		}).orElseThrow(() -> new Exception("User [id = " + id + "] não foi encontrado"));
