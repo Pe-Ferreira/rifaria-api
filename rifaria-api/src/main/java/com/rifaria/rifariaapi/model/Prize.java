@@ -8,8 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Table(name = "prize")
 @Entity
+@Getter @Setter
 public class Prize implements Serializable {
 	
 	private static final long serialVersionUID = -6380749575516426900L;
@@ -25,28 +29,7 @@ public class Prize implements Serializable {
 	@Column(name = "value")
 	private double value;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public double getValue() {
-		return value;
-	}
-
-	public void setValue(double value) {
-		this.value = value;
-	}
+	@Column(name = "max_raffle_amount")
+	private Integer maxRaffleAmount;
 
 }

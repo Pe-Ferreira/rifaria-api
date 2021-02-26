@@ -9,8 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 @Table(name = "raffle")
 @Entity
+@Getter @Setter @NoArgsConstructor
 public class Raffle implements Serializable {
 
 	private static final long serialVersionUID = -6380749575516426900L;
@@ -31,43 +36,9 @@ public class Raffle implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Prize prize;
-
-	public Raffle() {}
 	
 	public Raffle(Integer number, Prize prize) {
 		this.number = number;
-		this.prize = prize;
-	}
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-//	public User getProprietario() {
-//		return proprietario;
-//	}
-//
-//	public void setProprietario(User proprietario) {
-//		this.proprietario = proprietario;
-//	}
-
-	public int getNumber() {
-		return number;
-	}
-
-	public void setNumber(int number) {
-		this.number = number;
-	}
-
-	public Prize getPrize() {
-		return prize;
-	}
-
-	public void setPrize(Prize prize) {
 		this.prize = prize;
 	}
 
